@@ -1,0 +1,65 @@
+<resources>
+
+    <string name="app_name">Sync2app</string>
+
+    <string name="internet_error">Something went wrong way</string>
+    <string name="hello_navigation_drawer">Hello drawer</string>
+
+    <!--    Input Manual url path-->
+    <string name="input_url_zip">Input url zip e.g https://example.com</string>
+    <string name="input_index_url">Input url index e.g https://myApp/index.html</string>
+
+    <string name="input_path_e_g_clo">Input path e.g CLO</string>
+    <string name="test_connection">Test Connection</string>
+    <string name="hello_please">Hello\n please turn on the following features  for TV Mode\nImmersive mode\n\nHide bottom bar\n\n Show bottom menu icon\n\nFull screen\n\nHide floating</string>
+    <string name="input_path_e_g_de_mo_2021000">Input path e.g DE_MO_2021000</string>
+    <string name="awaiting_command">Awaiting command</string>
+    <string name="connecting">Connecting..</string>
+    <string name="invalide_remote_data">Invalid remote data</string>
+    <string name="initializing">initializing..</string>
+
+
+
+
+    <string name="next">NEXT</string>
+    <string name="skip">SKIP</string>
+    <string name="start">GOT IT</string>
+    <string name="scan_qr_code">Scan QR Code</string>
+
+    <string name="deeplink_url">Sync2app.MoreAdvice</string>
+    <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
+
+
+    <!-- ResultFragment -->
+    <string name="unsupported_wifi_encryption">This WiFi encryption is currently not supported: %1$s</string>
+    <string name="cannot_connect_to_encrypted_wifi_without_password">No connection to an encrypted WiFi network can be established without a password.</string>
+    <string name="ssid_value">SSID: %1$s</string>
+    <string name="encryption_value">Encryption: %1$s</string>
+    <string name="password_value">Password: %1$s</string>
+
+    <!-- Others -->
+    <string name="android_version_does_not_support_feature">Your Android version does not support this feature.</string>
+
+
+
+
+    <string name="go_parent_label">"⬆️ Parent folder"</string>
+    <string name="folder_item">🗂️ %1$s</string>
+    <string name="file_item">📄 %1$s</string>
+    <string name="permission_rationale_message">Sync2App need your Permission to Access your Files for app to function properly</string>
+    <string name="permission_display_over_app">Sync2App need your Permission to Display over other Apps</string>
+    <string name="permission_request_label">Give permission</string>
+    <string name="legacy_external_storage_warning_message">You need to enable the <b>requestLegacyExternalStorage</b>\n flag in the AndroidManifest.xml file</string>
+    <string name="settings_title">File Manager settings</string>
+    <string name="file_manager_title">File Manager sample</string>
+    <string name="sdk_codename_info">SDK codename: %1$s</string>
+    <string name="sdk_version_info">SDK version: %1$s</string>
+    <string name="legacy_storage_info">Legacy External Storage: %1$s</string>
+    <string name="permission_used_info">Permission used: %1$s</string>
+    <string name="permission_granted_info">Permission granted: %1$s</string>
+    <string name="open_settings_button_label">Open settings</string>
+    <string name="request_permission_button_label">Request permission</string>
+    <string name="todo">todo</string>
+
+
+</resources>

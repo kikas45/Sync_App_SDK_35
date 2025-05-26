@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="bottom_toolbar_icon_width">24dp</dimen>
+    <dimen name="bottom_toolbar_icon_height">24dp</dimen>
+    <!--    <dimen name="bottom_toolbar_space_width">30dp</dimen>-->
+    <dimen name="bottom_toolbar_space_width">20dp</dimen>
+    <dimen name="preficon">26dp</dimen>
+    <dimen name="powellDip">24dp</dimen>
+    <dimen name="powellsmalldip">20dp</dimen>
+    <dimen name="drawer_imgright_padduing">7dp</dimen>
+    <dimen name="drawer_items_textSize">16sp</dimen>
+    <dimen name="drawer_items_iconSize">20dp</dimen>
+
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="dots_height">30dp</dimen>
+    <dimen name="dots_margin_bottom">20dp</dimen>
+    <dimen name="img_width_height">110dp</dimen>
+    <dimen name="slide_title">24dp</dimen>
+    <dimen name="slide_desc">16sp</dimen>
+    <dimen name="desc_padding">40dp</dimen>
+    <dimen name="notif_title_size">20sp</dimen>
+    <dimen name="_12sp">12sp</dimen>
+    <dimen name="_15dp">0sp</dimen>
+</resources>

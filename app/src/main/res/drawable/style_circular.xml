@@ -1,0 +1,45 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Background of the circular progress -->
+    <item android:id="@android:id/background">
+        <shape android:shape="ring"
+            android:thicknessRatio="12"
+            android:useLevel="false">
+            <solid android:color="#B4D1DF" />
+        </shape>
+    </item>
+
+    <!-- Secondary progress color -->
+    <item android:id="@android:id/secondaryProgress">
+        <rotate
+            android:fromDegrees="270"
+            android:toDegrees="270">
+            <shape android:shape="ring"
+                android:thicknessRatio="12"
+                android:useLevel="true">
+                <gradient
+                    android:startColor="#80ffd300"
+                    android:endColor="#80ffb600"
+                    android:angle="270" />
+            </shape>
+        </rotate>
+    </item>
+
+    <!-- Main progress color -->
+    <item android:id="@android:id/progress">
+        <rotate
+            android:fromDegrees="270"
+            android:toDegrees="270">
+            <shape android:shape="ring"
+                android:thicknessRatio="12"
+                android:useLevel="true">
+                <gradient
+                    android:startColor="#64DD17"
+                    android:endColor="#2196F3"
+                    android:type="sweep"
+                    android:angle="100" />
+            </shape>
+        </rotate>
+    </item>
+
+</layer-list>

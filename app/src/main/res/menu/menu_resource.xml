@@ -1,0 +1,8 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menuItemCP"
+        android:title="CP-Cloud App Server"/>
+    <item
+        android:id="@+id/menuItemAPI"
+        android:title="API-Cloud App Server"/>
+</menu>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="app_color_primary">#FFFFFF</color>
+    <color name="app_color_accent">#43A047</color>
+
+    <color name="zxing_transparent">#00000000</color>
+    <color name="black">#FF000000</color>
+    <color name="red">#FF0000</color>
+    <color name="new_rbg_color">#97182234</color>
+    <color name="pref_icons_color">#5C8395</color>
+    <color name="white">#FFFFFF</color>
+    <color name="darkthemeColor">#262626</color>
+    <color name="test">#2B2A2B</color>
+    <color name="white_wash__powell">#FAF6FA</color>
+    <color name="white_wash_dim_bit">#ACACAC</color>
+
+    <color name="darkThemeAccent">#D0D0CF</color>
+    <color name="view_line">#EFEFEF</color>
+    <color name="dot_dark_screen1">#BDBFBF</color>
+    <color name="dot_dark_screen2">#BDBFBF</color>
+    <color name="dot_dark_screen3">#BDBFBF</color>
+    <color name="dot_dark_screen4">#BFC8C8</color>
+
+    <color name="light_gray_dim">#838282</color>
+    <color name="pop_layout_color">#EBEFF3</color>
+
+    <!--    by david -->
+    <color name="deep_blue">#033851</color>
+    <color name="deep_blue_v2">#2E6693</color>
+    <color name="dark_layout_for_ui">#171616</color>
+    <color name="deep_green">#318F34</color>
+    <color name="deep_blue_light">#21485A</color>
+    <color name="deep_blue_light_extra">#5B99B4</color>
+    <color name="light_gray">#676A6C</color>
+    <color name="light_whtie_over_laydark">#B2B8BC</color>
+    <color name="light_gray_wash">#6D7274</color>
+    <color name="light_blue_wash">#6799A5</color>
+    <color name="form_green_wash">#EEFFEF</color>
+    <color name="blue_wash_v2">#B3C9DB</color>
+    <color name="light_blue_wash_lithter">#BBD0E4</color>
+    <color name="dark_light_gray">#302E2E</color>
+    <color name="dark_light_gray_pop">#C3BCBC</color>
+    <color name="dark_dim_blue_pop">#051D36</color>
+    <color name="dark_light_theme">#2C2A2A</color>
+    <color name="tool_bar_color">#F4F1F4</color>
+
+    <color name="light_blue_HT_light">#E3E3E3</color>
+    <color name="light_blue_HT_dark">#F1F5FF</color>
+
+    <color name="colorPrimary">#0F9D58</color>
+    <color name="colorPrimaryDark">#16E37F</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="logo_green">#88D834</color>
+    <color name="logo_blue">#0F9FE7</color>
+    <color name="divider_ash_color">#575252</color>
+    <color name="pop_layout_background">#EBEFF3</color>
+
+
+    <!-- dots active colors -->
+    <color name="dot_light_screen1">#FFFFFF</color>
+    <color name="dot_light_screen2">#FFFFFF</color>
+    <color name="dot_light_screen3">#FFFFFF</color>
+    <color name="dot_light_screen4">#FFFFFF</color>
+
+
+    <array name="array_dot_active">
+        <item>@color/dot_light_screen1</item>
+        <item>@color/dot_light_screen2</item>
+        <item>@color/dot_light_screen3</item>
+        <item>@color/dot_light_screen4</item>
+    </array>
+
+    <array name="array_dot_inactive">
+        <item>@color/dot_dark_screen1</item>
+        <item>@color/dot_dark_screen2</item>
+        <item>@color/dot_dark_screen3</item>
+        <item>@color/dot_dark_screen4</item>
+    </array>
+</resources>

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "231505889929",
+    "project_id": "syncapplive",
+    "storage_bucket": "syncapplive.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:231505889929:android:ca125e625bd1a96b0e5458",
+        "android_client_info": {
+          "package_name": "sync2app.com.syncapplive"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXTd9D2sn3dAB9H4cgY-uiuuug2vhYB7U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
