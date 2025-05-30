@@ -295,14 +295,9 @@ class ReSyncActivity : AppCompatActivity(), SavedHistoryListAdapter.OnItemClickL
 
 
 
-
-
             constrainSelectSyncType.setOnClickListener {
                 showSelectedSyncType()
             }
-
-
-
 
 
             textTestConnectionAPPer.setOnClickListener {

@@ -23,12 +23,18 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
 import sync2app.com.syncapplive.myService.ParsingSyncService
 import sync2app.com.syncapplive.myService.RetryParsingSyncService
+import java.io.IOException
+import java.net.HttpURLConnection
+import java.net.InetAddress
 import java.net.URI
 import java.net.URISyntaxException
+import java.net.URL
 import java.util.regex.Pattern
 
 object Utility {

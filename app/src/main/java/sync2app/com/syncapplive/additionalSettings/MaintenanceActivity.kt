@@ -110,7 +110,6 @@ class MaintenanceActivity : AppCompatActivity() {
 
 
 
-
         setTextForOrientation()
 
         applyOritenation()
@@ -237,9 +236,7 @@ class MaintenanceActivity : AppCompatActivity() {
                 }
 
 
-
             }
-
 
         }
 

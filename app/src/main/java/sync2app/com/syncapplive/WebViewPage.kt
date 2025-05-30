@@ -141,7 +141,9 @@ import sync2app.com.syncapplive.additionalSettings.myFailedDownloadfiles.DnFaile
 import sync2app.com.syncapplive.additionalSettings.myParsingDownloadDataBase.ParsingApi
 import sync2app.com.syncapplive.additionalSettings.myParsingDownloadDataBase.ParsingViewModel
 import sync2app.com.syncapplive.additionalSettings.savedDownloadHistory.scanutil.CustomShortcutsDemo
+import sync2app.com.syncapplive.additionalSettings.urlchecks.checkStoragePermission
 import sync2app.com.syncapplive.additionalSettings.urlchecks.checkUrlExistence
+import sync2app.com.syncapplive.additionalSettings.urlchecks.requestStoragePermission
 import sync2app.com.syncapplive.additionalSettings.usdbCamera.MyUsb.CameraHandlerKT
 import sync2app.com.syncapplive.additionalSettings.usdbCamera.MyUsb.kotlionCode.AudioHandlerKT
 import sync2app.com.syncapplive.additionalSettings.utils.CSVDownloader
@@ -156,6 +158,7 @@ import sync2app.com.syncapplive.databinding.CustomContactAdminBinding
 import sync2app.com.syncapplive.databinding.CustomEmailSucessLayoutBinding
 import sync2app.com.syncapplive.databinding.CustomFailedLayoutBinding
 import sync2app.com.syncapplive.databinding.CustomForgetPasswordEmailLayoutBinding
+import sync2app.com.syncapplive.databinding.CustomGrantAccessPageBinding
 import sync2app.com.syncapplive.databinding.CustomLayoutWebInternetBinding
 import sync2app.com.syncapplive.databinding.CustomNotificationLayoutBinding
 import sync2app.com.syncapplive.databinding.CustomOfflinePopLayoutBinding
@@ -790,14 +793,25 @@ class WebViewPage : AppCompatActivity() {
         textNoCameraAvaliable = findViewById(R.id.textNoCameraAvaliable)
 
 
+
         CameraReceiver = CameraDisconnectedReceiver()
         val filter33 = IntentFilter(Constants.SYNC_CAMERA_DISCONNECTED)
-        registerReceiver(CameraReceiver, filter33)
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+            registerReceiver(CameraReceiver, filter33, Context.RECEIVER_NOT_EXPORTED)
+        } else {
+            registerReceiver(CameraReceiver, filter33)
+        }
 
         usbBroadcastReceiver = UsbBroadcastReceiver()
         val filter444 = getIntentFilter()
-        registerReceiver(usbBroadcastReceiver, filter444)
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+            registerReceiver(usbBroadcastReceiver, filter444, Context.RECEIVER_NOT_EXPORTED)
+        } else {
+            registerReceiver(usbBroadcastReceiver, filter444)
+        }
+
 
 
         ///end of init  camera
@@ -807,10 +821,22 @@ class WebViewPage : AppCompatActivity() {
 
 
         val filter = IntentFilter().apply { addAction(Constants.RECIVER_PROGRESS) }
-        registerReceiver(progressReceiver, filter)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+            registerReceiver(progressReceiver, filter, Context.RECEIVER_NOT_EXPORTED)
+        } else {
+            registerReceiver(progressReceiver, filter)
+        }
+
 
         val filterPr = IntentFilter().apply { addAction(Constants.RECIVER_DOWNLOAD_BYTES_PROGRESS) }
-        registerReceiver(progressDownloadBytesReceiver, filterPr)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+            registerReceiver(progressDownloadBytesReceiver, filterPr, Context.RECEIVER_NOT_EXPORTED)
+        } else {
+            registerReceiver(progressDownloadBytesReceiver, filterPr)
+        }
+
+
+
 
 
         val scroolToEnd = findViewById<ImageView>(R.id.scroolToEnd)
@@ -925,7 +951,68 @@ class WebViewPage : AppCompatActivity() {
         }
 
 
+
+        val handKM = Handler(Looper.getMainLooper())
+        handKM.postDelayed(Runnable {
+            if (isSystemRunning){
+                startPermissionProcess()
+            }
+        },1500)
+
+
     }
+
+
+    private fun startPermissionProcess() {
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            if (!Environment.isExternalStorageManager()) {
+                showPop_For_Grant_Permsiion()
+            }
+        } else {
+            if (ContextCompat.checkSelfPermission(
+                    this, Manifest.permission.READ_EXTERNAL_STORAGE
+                ) != PackageManager.PERMISSION_GRANTED
+            ) {
+                showPop_For_Grant_Permsiion()
+            }
+        }
+
+    }
+
+
+
+    @SuppressLint("MissingInflatedId")
+    private fun showPop_For_Grant_Permsiion() {
+        val bindingCM: CustomGrantAccessPageBinding =
+            CustomGrantAccessPageBinding.inflate(layoutInflater)
+        val builder = android.app.AlertDialog.Builder(this)
+        builder.setView(bindingCM.root)
+        val alertDialog = builder.create()
+        alertDialog.setCanceledOnTouchOutside(true)
+        alertDialog.setCancelable(true)
+        alertDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        alertDialog.window!!.attributes.windowAnimations = R.style.PauseDialogAnimation
+
+        val permissionButton: TextView = bindingCM.textContinuPassword2
+        val imgCloseDialog: ImageView = bindingCM.imgCloseDialog
+
+        Utility.startPulseAnimationForText(bindingCM.imagSucessful)
+
+
+        permissionButton.setOnClickListener {
+            requestStoragePermission(this@WebViewPage)
+            alertDialog.dismiss()
+        }
+
+        imgCloseDialog.setOnClickListener {
+            alertDialog.dismiss()
+        }
+
+        alertDialog.show()
+    }
+
+
 
 
     private fun InitWebviewIndexFileState() {
@@ -1105,10 +1192,8 @@ class WebViewPage : AppCompatActivity() {
 
     @SuppressLint("UnspecifiedRegisterReceiverFlag")
     private fun registerNotificationBroadCast() {
-
         if (constants.Notifx_service) {
             isAppOpen = true
-
             startService(Intent(this, RemotexNotifierKT::class.java))
 
             filter = IntentFilter("notifx_ready")
@@ -1124,11 +1209,18 @@ class WebViewPage : AppCompatActivity() {
                     }
                 }
             }
-            applicationContext.registerReceiver(receiver, filter)
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+                applicationContext.registerReceiver(receiver, filter, Context.RECEIVER_NOT_EXPORTED)
+            } else {
+                applicationContext.registerReceiver(receiver, filter)
+            }
+
         } else {
             stopService(Intent(this, RemotexNotifierKT::class.java))
         }
     }
+
 
     private fun InitWebvIewloadStates() {
         val sharedBiometric = getSharedPreferences(Constants.SHARED_BIOMETRIC, MODE_PRIVATE)

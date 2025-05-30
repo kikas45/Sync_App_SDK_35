@@ -84,6 +84,7 @@ class RetryParsingSyncService : Service() {
     private var isDnFailed = true
 
 
+    @SuppressLint("ForegroundServiceType")
     override fun onCreate() {
         super.onCreate()
 
@@ -176,6 +177,7 @@ class RetryParsingSyncService : Service() {
     }
 
 
+    @SuppressLint("ForegroundServiceType")
     @RequiresApi(Build.VERSION_CODES.O)
     private fun startMyOwnForeground() {
         val newsTitle = "Re_Parsing Sync"

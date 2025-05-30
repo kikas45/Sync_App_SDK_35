@@ -198,7 +198,13 @@ class TvActivityOrAppMode : AppCompatActivity(), SavedApiAdapter.OnItemClickList
         setContentView(binding.root)
 
         // Register the broadcast receiver dynamically
-        registerReceiver(downloadReceiver, IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE))
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) { // Android 14 (API 34)
+            registerReceiver(downloadReceiver, IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE), Context.RECEIVER_NOT_EXPORTED)
+        } else {
+
+            registerReceiver(downloadReceiver, IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE))
+        }
+
 
 
         handler.postDelayed(kotlinx.coroutines.Runnable {
@@ -546,7 +552,14 @@ class TvActivityOrAppMode : AppCompatActivity(), SavedApiAdapter.OnItemClickList
 
         connectivityReceiver = ConnectivityReceiver()
         val intentFilter = IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION)
-        registerReceiver(connectivityReceiver, intentFilter)
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+            registerReceiver(connectivityReceiver, intentFilter, Context.RECEIVER_NOT_EXPORTED)
+        } else {
+            registerReceiver(connectivityReceiver, intentFilter)
+        }
+
+
 
 
         val deepBlue = resources.getColor(R.color.white)
@@ -1728,6 +1741,7 @@ class TvActivityOrAppMode : AppCompatActivity(), SavedApiAdapter.OnItemClickList
             }
         }
     }
+
 
     inner class ConnectivityReceiver : BroadcastReceiver() {
         @SuppressLint("SetTextI18n")

@@ -125,7 +125,6 @@ class PasswordActivity : AppCompatActivity() {
                 navigateBackScreen()
             }
 
-
             imgToggle.setOnClickListener {
                 imgToggle.visibility = View.INVISIBLE
                 imgToggleNzotVisible.visibility = View.VISIBLE
@@ -610,6 +609,7 @@ class PasswordActivity : AppCompatActivity() {
     }
 
 
+    @SuppressLint("MissingSuperCall")
     override fun onBackPressed() {
         navigateBackScreen()
     }
